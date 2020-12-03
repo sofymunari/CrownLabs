@@ -18,10 +18,10 @@ package main
 
 import (
 	"flag"
+	"github.com/netgroup-polito/CrownLabs/operators/pkg/tenant-controller"
 	"os"
 
 	tenantv1alpha1 "github.com/netgroup-polito/CrownLabs/operators/api/v1alpha1"
-	"github.com/netgroup-polito/CrownLabs/operators/pkg/controllers"
 	"k8s.io/apimachinery/pkg/runtime"
 	clientgoscheme "k8s.io/client-go/kubernetes/scheme"
 	_ "k8s.io/client-go/plugin/pkg/client/auth/gcp"
@@ -65,14 +65,14 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err = (&controllers.TenantReconciler{
+	if err = (&tenant_controller.TenantReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
 		setupLog.Error(err, "unable to create controller", "controller", "Tenant")
 		os.Exit(1)
 	}
-	if err = (&controllers.WorkspaceReconciler{
+	if err = (&tenant_controller.WorkspaceReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
