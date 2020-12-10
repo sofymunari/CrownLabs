@@ -8,7 +8,10 @@ spec:
   ID: id12345678
   email: mario.rossi@email.com
   workspaces:
-    - workspaceURL: LANDC
+    - workspaceName: landc
+      role: Basic
+      groupNumber: 12
+    - workspaceName: swnet
       role: Basic
       groupNumber: 12
   publicKeys:

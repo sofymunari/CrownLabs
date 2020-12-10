@@ -91,6 +91,7 @@ func main() {
 	if err = (&controllers.TenantReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
+		KcT:    kcA,
 	}).SetupWithManager(mgr); err != nil {
 		klog.Fatal("Unable to create controller for Tenant", err)
 	}

@@ -36,9 +36,9 @@ const (
 
 // UserWorkspaceData contains the info of the workspaces related to a user
 type UserWorkspaceData struct {
-	WorkspaceURL string            `json:"workspaceURL"`
-	GroupNumber  int               `json:"groupNumber"`
-	Role         WorkspaceUserRole `json:"role"`
+	WorkspaceName string            `json:"workspaceName"`
+	GroupNumber   int               `json:"groupNumber"`
+	Role          WorkspaceUserRole `json:"role"`
 }
 
 // TenantSpec defines the desired state of Tenant
